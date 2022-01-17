@@ -34,7 +34,7 @@ class Encoder(nn.Module):
             pretrained=pretrained)
         # Reinitialize the first conv layer for D+N inputs
         if config.path['input_image_path'] is None:
-            self.features.conv1 = nn.Conv2d(4,\
+            self.features.conv1 = nn.Conv2d(3,\
                                             64,\
                                             kernel_size=7,\
                                             stride=2,\

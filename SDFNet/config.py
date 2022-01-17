@@ -1,6 +1,6 @@
 path = dict(
 		# Path to rendering directory
-		src_dataset_path = '/scr/devlearning/ShapeNet55_HVC_LR',
+		src_dataset_path = './ShapeNet55_2DOF_VC_PRED_UNSEEN',#'/scr/devlearning/ShapeNet55_HVC_LR',
 		# Input image path. Change to 'image_output' if trained with image
 		input_image_path = None,
 		# Input depth path. Change to None if trained with image only
@@ -10,7 +10,7 @@ path = dict(
 		# Input silhouette path. Change to None if trained with image only
 		input_seg_path = 'segmentation',
 		# Path to sdf and pointcloud directory
-		src_pt_path = '/data/devlearning/gensdf_data/ShapeNet_sdf_55',
+		src_pt_path = None,#'/data/devlearning/gensdf_data/ShapeNet_sdf_55',
 		# Path to json file
 		data_split_json_path = '/data/devlearning/gensdf_data/json_files/data_split.json'
 			)
@@ -26,7 +26,7 @@ data_setting = dict(
 		)
 training = dict(
 		# Path to model output directory
-		out_dir = '/data/devlearning/model_output_test/sdf_3dvc',
+		out_dir = './out_dir',#'/data/devlearning/model_output_test/sdf_3dvc',
 		# Training minibatch size
 		batch_size = 128,
 		# Validation minibatch size
@@ -63,6 +63,6 @@ testing = dict(
 		# Testing minibatch size. Always 1 if generating mesh on the fly
 		batch_size_test = 1,
 		# Path to selected model to perform evaluation. If set to None, evaluation will be done on default best models. 
-		model_selection_path = None
+		model_selection_path = './out_dir/best_model_img_3DOF.pth.tar'#None
 		) 
 

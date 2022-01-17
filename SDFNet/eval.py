@@ -23,11 +23,13 @@ def main():
 
     if model_selection_path is not None:
         # Model selection path is specified
-        model_selection_path = os.path.join(out_dir, model_selection_path)
-        model_selection = np.load(model_selection_path, allow_pickle=True)
-        ep = model_selection['epoch']
-        model_path = 'model-%s.pth.tar'%(ep)
-        model_path = os.path.join(out_dir, model_path)
+        # model_selection_path = os.path.join(out_dir, model_selection_path)
+        # model_selection = np.load(model_selection_path, allow_pickle=True)
+        # ep = model_selection['epoch']
+        # model_path = 'model-%s.pth.tar'%(ep)
+        # model_path = os.path.join(out_dir, model_path)
+        model_path = model_selection_path
+
     else:
         if rep == 'occ':
             if cont is None:
