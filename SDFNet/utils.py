@@ -14,6 +14,7 @@ import h5py
 import torch.nn as nn
 import struct
 import pymesh
+from pathlib import Path
 
 def writelogfile(log_dir):
     log_file_name = os.path.join(log_dir, 'log.txt')
@@ -429,6 +430,11 @@ def generate_mesh_sdf(img, model, obj_path, sdf_path, iso=0.003, box_size=1.01, 
     pred_sdf = model(all_pts, img)
     pred_sdf = pred_sdf.data.cpu().numpy().reshape(-1)
 
+    myfile = Path(sdf_path)
+    if not os.path.exists(os.path.dirname(sdf_path)):
+        os.makedirs(os.path.dirname(sdf_path))
+    myfile.touch(exist_ok=True)
+    # myfile.touch()
     f_sdf_bin = open(sdf_path, 'wb')
     f_sdf_bin.write(struct.pack('i', -(resolution)))  # write an int
     f_sdf_bin.write(struct.pack('i', (resolution)))  # write an int

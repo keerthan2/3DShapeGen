@@ -43,5 +43,6 @@ with torch.no_grad():
     optimizer.zero_grad()
     image_data = Image.open(input_image_path).convert('RGB')
     image_data = img_transform(image_data)
+    image_data = torch.unsqueeze(image_data, 0)
     image_data = Variable(image_data).cuda()
     utils.generate_mesh_sdf(image_data, model, obj_path, sdf_path, box_size=box_size)
