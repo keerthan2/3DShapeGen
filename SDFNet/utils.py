@@ -201,7 +201,7 @@ def LpLoss(logits, sdf, p=1, thres=0.01, weight=4.):
     loss = torch.mean(loss)
     return loss
 
-def generate_mesh(img, points, model, threshold=0.2, box_size=1.7, \
+def generate_mesh(img, model, threshold=0.2, box_size=1.7, \
             resolution0=16, upsampling_steps=2):
     '''
     Generates mesh for occupancy representations using MISE algorithm
